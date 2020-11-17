@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
-  resources :yachts, only: [:index, :new, :create, :show] do
+  resources :yachts, only: [:index, :new, :create, :show, :edit] do
     resources :bookings, only: [:create]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

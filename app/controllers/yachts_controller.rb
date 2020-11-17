@@ -1,10 +1,13 @@
 class YachtsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @yachts = Yacht.all
   end
 
   def new
     @yacht = Yacht.new
+    @booking = Booking.new
   end
 
   def show
@@ -14,8 +17,8 @@ class YachtsController < ApplicationController
 
   def create
     @yacht = Yacht.new(yacht_params)
-    @yacht.save
-    if @yacht.save
+    @yacht.user = current_user
+    if @yacht.save # ensures validations pass
       redirect_to yacht_path(@yacht.id)
     else
       render :new

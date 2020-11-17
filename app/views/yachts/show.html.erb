@@ -1,13 +1,20 @@
-<h1><%= @yacht.title %></h1>
-<ul>
-  <li><%= @yacht.description %></li>
-  <li><%= @yacht.length %></li>
-  <li><%= @yacht.number_of_guests %></li>
-  <li><%= @yacht.number_of_crew %></li>
-  <li><%= @yacht.number_of_cabins %></li>
-  <li><%= @yacht.beam %></li>
-  <li><%= @yacht.build %></li>
-  <li><%= @yacht.build %></li>
-  <li><%= @yacht.weekly_price %></li>
-  <li><%= @yacht.average_rating %></li>
-</ul>
+<h1 class="text-center"><%= @yacht.title %></h1>
+
+<div class="container">
+  <ul class="show-list">
+    <li class="list-group-item col-6 mt-2"><%= @yacht.description %></li>
+    <li class="list-group-item col-6 mt-2"><%= @yacht.length %></li>
+    <li class="list-group-item col-6 mt-2"><%= @yacht.number_of_guests %></li>
+    <li class="list-group-item col-6 mt-2"><%= @yacht.number_of_crew %></li>
+    <li class="list-group-item col-6 mt-2"><%= @yacht.number_of_cabins %></li>
+    <li class="list-group-item col-6 mt-2"><%= @yacht.beam %></li>
+    <li class="list-group-item col-6 mt-2"><%= @yacht.build %></li>
+    <li class="list-group-item col-6 mt-2"><%= @yacht.build %></li>
+    <li class="list-group-item col-6 mt-2"><%= @yacht.weekly_price %></li>
+    <li class="list-group-item col-6 mt-2"><%= @yacht.average_rating %></li>
+  </ul>
+
+  <div class="booking-form">
+
+  </div>
+</div>

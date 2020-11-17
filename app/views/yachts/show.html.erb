@@ -5,12 +5,13 @@
     <div class="list-box">
       <div class="card">
         <h4 class="text-center mt-2">Yacht Details</h4>
+        <div class="description">
+          <h6 class="text-center">Overview</h6>
+          <p><%= @yacht.description.capitalize %></p>
+        </div>
+        <hr>
         <table class="table details-table">
           <tbody>
-            <tr>
-              <td>Description:</td>
-              <td><%= @yacht.description.capitalize %></td>
-            </tr>
             <tr>
               <td>Price:</td>
               <td>€<%= @yacht.weekly_price %>p/w</td>

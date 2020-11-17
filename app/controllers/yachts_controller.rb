@@ -13,6 +13,7 @@ class YachtsController < ApplicationController
   def show
     id = params[:id]
     @yacht = Yacht.find(id)
+    @booking = Booking.new
   end
 
   def create

@@ -1,18 +1,24 @@
-<div class="container">
-  <%= simple_form_for @yacht do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :weekly_price %>
-    <%= f.input :average_rating %>
-    <%= f.input :length %>
-    <%= f.input :beam %>
-    <%= f.input :build %>
-    <%= f.input :cruising_speed %>
-    <%= f.input :coordinates %>
-    <%= f.input :number_of_guests %>
-    <%= f.input :number_of_crew %>
-    <%= f.input :number_of_cabins %>
-    <%= f.input :user_id %>
-    <%= f.submit %>
-  <% end %>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-6">
+      <%= simple_form_for @yacht do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :weekly_price %>
+        <%= f.input :length %>
+        <%= f.input :beam %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </div>
+      <div class="col-6">
+        <%= f.input :build %>
+        <%= f.input :cruising_speed %>
+        <%= f.input :coordinates %>
+        <%= f.input :number_of_guests %>
+        <%= f.input :number_of_crew %>
+        <%= f.input :number_of_cabins %>
+      </div>
+      <%= f.submit class: "create-btn mr-4"%>
+    <% end %>
+    <%= link_to "Back", yachts_path, class: "create-btn" %>
+  </div>
 </div>

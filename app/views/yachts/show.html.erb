@@ -1,20 +1,74 @@
-<h1 class="text-center"><%= @yacht.title %></h1>
+<h1 class="text-center yacht-title"><%= @yacht.title %></h1>
 
 <div class="container">
-  <ul class="show-list">
-    <li class="list-group-item col-6 mt-2"><%= @yacht.description %></li>
-    <li class="list-group-item col-6 mt-2"><%= @yacht.length %></li>
-    <li class="list-group-item col-6 mt-2"><%= @yacht.number_of_guests %></li>
-    <li class="list-group-item col-6 mt-2"><%= @yacht.number_of_crew %></li>
-    <li class="list-group-item col-6 mt-2"><%= @yacht.number_of_cabins %></li>
-    <li class="list-group-item col-6 mt-2"><%= @yacht.beam %></li>
-    <li class="list-group-item col-6 mt-2"><%= @yacht.build %></li>
-    <li class="list-group-item col-6 mt-2"><%= @yacht.build %></li>
-    <li class="list-group-item col-6 mt-2"><%= @yacht.weekly_price %></li>
-    <li class="list-group-item col-6 mt-2"><%= @yacht.average_rating %></li>
-  </ul>
+  <div class="d-flex justify-space-between">
+    <div class="list-box">
+      <div class="card">
+        <h4 class="text-center mt-2">Yacht Details</h4>
+        <table class="table details-table">
+          <tbody>
+            <tr>
+              <td>Description:</td>
+              <td><%= @yacht.description.capitalize %></td>
+            </tr>
+            <tr>
+              <td>Price:</td>
+              <td>€<%= @yacht.weekly_price %>p/w</td>
+            </tr>
+            <tr>
+              <td>Length:</td>
+              <td><%= @yacht.length %>m</td>
+            </tr>
+            <tr>
+              <td>Beam: </td>
+              <td><%= @yacht.beam %>m</td>
+            </tr>
+            <tr>
+              <td>Number of Guests:</td>
+              <td><%= @yacht.number_of_guests %></td>
+            </tr>
+            <tr>
+              <td>Number of Cabins:</td>
+              <td><%= @yacht.number_of_cabins %></td>
+            </tr>
+            <tr>
+              <td>Number of Crew:</td>
+              <td><%= @yacht.number_of_crew %></td>
+            </tr>
+            <tr>
+              <td>Cruising Speed:</td>
+              <td><%= @yacht.cruising_speed %> knots</td>
+            </tr>
+            <tr>
+              <td>Build:</td>
+              <td><%= @yacht.build.capitalize %></td>
+            </tr>
+            <tr>
+              <td>Year:</td>
+              <td><%= @yacht.year %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-  <div class="booking-form">
-
+    <div class="booking-form">
+      <div class="card booking-card">
+        <h4 class="text-center mt-2">New Booking</h4>
+        <%= simple_form_for [ @yacht, @booking ] do |f| %>
+        <div class="form-inputs">
+          <div class="form-group">
+            <%= f.label :start_date %>
+            <%= f.date_field :start_date, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :end_date %>
+            <%= f.date_field :end_date, class: 'form-control' %>
+          </div>
+          <%= f.submit class: 'btn btn-theme' %>
+        <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

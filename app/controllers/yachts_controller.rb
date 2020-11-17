@@ -32,8 +32,8 @@ class YachtsController < ApplicationController
 
   def update
     @yacht = Yacht.find(params[:id])
-    @yacht.update
-    if @yacht.save
+    @yacht.update(yacht_params)
+    if @yacht.update
       redirect_to yacht_path(@yacht.id)
     else
       render :edit

@@ -3,6 +3,6 @@ index.html.erb
 <ul class="list-group">
     <%= @yachts.each do |y| %>
         <li class="list-group-item"><%= link_to y.title, yacht_path(y) %></li>
-        <%= end %>
+        <% end %>
     <%= link_to "Create a listing", new_yacht_path %>
 </ul>

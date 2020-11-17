@@ -1,8 +1,12 @@
 index.html.erb
 <h1>Choose your bespoke yachting experience...</h1>
+
+<h2>SEARCH BAR HERE</h2>
+
 <ul class="list-group">
-    <% @yachts.each do |y| %>
-        <li class="list-group-item"><%= link_to y.title, yacht_path(y) %></li>
+    <% @yachts.each do |yacht| %>
+        <li class="list-group-item"><%= link_to yacht.title, yacht_path(yacht) %></li>
+        <%= link_to "Enquire", yacht_path(yacht) %>
         <% end %>
-    <%= link_to "Create a listing", new_yacht_path %>
 </ul>
+

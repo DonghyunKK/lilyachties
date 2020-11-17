@@ -1,8 +1,23 @@
-index.html.erb
-<h1>Choose your bespoke yachting experience...</h1>
-<ul class="list-group">
-    <% @yachts.each do |y| %>
-        <li class="list-group-item"><%= link_to y.title, yacht_path(y) %></li>
+
+<h1 class="text-center">Choose your Lil' Yacht</h1>
+<div class="container">
+<h2 class="text-left">Search Available Yachts</h2>
+  <div class="row">
+    <div class="col-8">
+      <ul class="list-group">
+        <% @yachts.each do |yacht| %>
+          <div class="card" style="width: 27rem;">
+            <img src="https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to yacht.title, yacht_path(yacht) %></h5>
+              <p class="card-text"><%= yacht.description %></p>
+              <a href="" class="btn btn-primary">Enquire</a>
+            </div>
+          </div>
         <% end %>
-    <%= link_to "Create a listing", new_yacht_path %>
-</ul>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

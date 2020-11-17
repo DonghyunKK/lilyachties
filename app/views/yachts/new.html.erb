@@ -1,1 +1,18 @@
-new.html.rb
+<div class="container">
+  <%= simple_form_for @yacht do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :weekly_price %>
+    <%= f.input :average_rating %>
+    <%= f.input :length %>
+    <%= f.input :beam %>
+    <%= f.input :build %>
+    <%= f.input :cruising_speed %>
+    <%= f.input :coordinates %>
+    <%= f.input :number_of_guests %>
+    <%= f.input :number_of_crew %>
+    <%= f.input :number_of_cabins %>
+    <%= f.input :user_id %>
+    <%= f.submit %>
+  <% end %>
+</div>

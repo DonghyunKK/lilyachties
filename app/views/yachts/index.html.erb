@@ -1,7 +1,7 @@
 index.html.erb
 <h1>Choose your bespoke yachting experience...</h1>
 <ul class="list-group">
-    <%= @yachts.each do |y| %>
+    <% @yachts.each do |y| %>
         <li class="list-group-item"><%= link_to y.title, yacht_path(y) %></li>
         <% end %>
     <%= link_to "Create a listing", new_yacht_path %>

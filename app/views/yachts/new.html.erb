@@ -1,1 +1,7 @@
-new.html.rb
+<%= simple_form_for @yacht do |f| %>
+  <%= f.input :title %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to "Back", yachts_path %>

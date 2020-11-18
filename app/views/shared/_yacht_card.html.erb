@@ -1,3 +1,16 @@
 <div class="yacht-card">
-
+  <div class="yc-image-holder">
+   <div class="yc-image"></div>
+   <div class="yc-yacht-name"><%= yacht.title %></div>
+  </div>
+  <div class="yc-info">
+    <div class="yc-desc-price">
+      <div class="yc-desc"><%= yacht.description %></div>
+      <div class="yc-price"><%= yacht.weekly_price %></div>
+    </div>
+    <div class="yc-rating-btn">
+      <div class="yc-rating"><%= yacht.average_rating %></div>
+      <%= link_to 'Enquire', yacht_path(yacht.id), class: 'yc-btn btn btn-dark' %>
+    </div>
+  </div>
 </div>

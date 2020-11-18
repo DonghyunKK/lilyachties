@@ -1,22 +1,29 @@
 
 <h1 class="text-center">Choose your Lil' Yacht</h1>
 <div class="container">
-<h2 class="text-left">Search Available Yachts</h2>
-  <div class="row">
-    <div class="col-8">
-      <ul class="list-group">
-        <% @yachts.each do |yacht| %>
-          <div class="card" style="width: 27rem;">
-            <img src="https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"><%= link_to yacht.title, yacht_path(yacht) %></h5>
-              <p class="card-text"><%= yacht.description %></p>
-              <a href="" class="btn btn-primary">Enquire</a>
-            </div>
-          </div>
-        <% end %>
-      </ul>
+  <h2 class="text-left">Search Available Yachts</h2>
+  <div class="content">
+    <div class="left-side">
+      <div class="row">
+        <div class="col-8">
+          <ul class="list-group">
+            <% @yachts.each do |yacht| %>
+              <div class="card" style="width: 20rem;">
+                <img src="https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title"><%= link_to yacht.title, yacht_path(yacht) %></h5>
+                  <p class="card-text"><%= yacht.description %></p>
+                  <a href="" class="btn btn-primary">Enquire</a>
+                </div>
+              </div>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
+    <div class="right-side"> 
+      <img src="https://images.pexels.com/photos/240834/pexels-photo-240834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="rounded float-right" alt="...">
+    </div>     
   </div>
 </div>
 

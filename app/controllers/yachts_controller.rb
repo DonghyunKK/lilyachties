@@ -27,7 +27,7 @@ class YachtsController < ApplicationController
   def create
     @yacht = Yacht.new(yacht_params)
     @yacht.user = current_user
-    if @yacht.save # ensures validations pass
+    if @yacht.save! # ensures validations pass
       redirect_to yacht_path(@yacht.id)
     else
       render :new

@@ -41,6 +41,12 @@ class YachtsController < ApplicationController
     end
   end
 
+  def destroy
+    @yacht = Yacht.find(params[:id])
+    @yacht.delete
+    redirect_to dashboard_path
+  end
+
   private
 
   def yacht_params

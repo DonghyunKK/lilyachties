@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="text-center">Welcome to your Dashboard</h1>
+  <div class="content d-flex">
+    <div class="dashboard-bookings w-50">
+      <h4 class="text-center">Your bookings</h4>
+    </div>
+    <div class="dashboard-yachts w-50">
+      <h4 class="text-center">Your Yachts</h4>
+      <% @yachts.each do |yacht| %>
+        <p><%= link_to yacht.title, yacht_path(yacht) %>
+        <%= link_to 'Delete', yacht_path(yacht), method: :delete, data: { confirm: 'Are you sure?'} %></p>
+      <% end %>
+      <p class="text-center">
+        <%= link_to 'Add a New Yacht', new_yacht_path, class: 'btn create-btn' %>
+      </p>
+    </div>
+  </div>
+</div>

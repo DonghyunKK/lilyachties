@@ -1,0 +1,19 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.right-side {
+  width: 50%;
+  img {
+    width: 100%;
+    position: sticky;
+    top: 100px;
+  }
+}
+
+.left-side {
+  display: flex;
+  flex-wrap: wrap;
+}

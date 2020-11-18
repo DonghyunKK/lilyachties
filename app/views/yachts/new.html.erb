@@ -1,25 +1,2 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-6">
-      <%= simple_form_for @yacht do |f| %>
-        <%= f.input :title %>
-        <%= f.input :description %>
-        <%= f.input :weekly_price, input_html: { min: '0', step: 'any' } %>
-        <%= f.input :length, input_html: { min: '0', step: 'any' } %>
-        <%= f.input :beam, input_html: { min: '0', step: 'any' } %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      </div>
-      <div class="col-6">
-        <%= f.input :build %>
-        <%= f.input :cruising_speed, input_html: { min: '0', step: 'any' } %>
-        <%= f.input :latitude %>
-        <%= f.input :longitude %>
-        <%= f.input :number_of_guests, input_html: { min: '0', step: 'any' } %>
-        <%= f.input :number_of_crew, input_html: { min: '0', step: 'any' } %>
-        <%= f.input :number_of_cabins, input_html: { min: '0', step: 'any' } %>
-      </div>
-      <%= f.submit class: "create-btn mr-4"%>
-    <% end %>
-    <%= link_to "Back", yachts_path, class: "create-btn" %>
-  </div>
-</div>
+<h1>Add A New Yacht Listing</h1>
+<%= render 'form' %>

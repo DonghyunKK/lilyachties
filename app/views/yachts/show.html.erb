@@ -1,3 +1,7 @@
+<div class="images">
+  <%= render 'images' %>
+</div>
+
 <h1 class="text-center yacht-title"><%= @yacht.title %></h1>
 
 <div class="container">
@@ -66,7 +70,7 @@
             <%= f.label :end_date %>
             <%= f.date_field :end_date, class: 'form-control' %>
           </div>
-          <%= f.submit class: 'btn btn-theme' %>
+          <%= f.submit "Enquire", class: 'btn btn-theme' %>
         <% end %>
         </div>
       </div>

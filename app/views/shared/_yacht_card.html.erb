@@ -1,6 +1,10 @@
 <div class="yacht-card" style="margin: <%= margin %>px;">
   <div class="yc-image-holder">
-   <div class="yc-image" style='background-image: url("<%= cl_image_path yacht.photos[0].key%>");'></div>
+    <% if yacht.photos[0] %>
+      <div class="yc-image" style='background-image: url("<%= cl_image_path yacht.photos[0].key%>");'></div>
+    <% else %>
+      <div class="yc-image" style='background-image: none'></div>
+    <% end %>
    <div class="yc-yacht-name"><%= yacht.title %></div>
   </div>
   <div class="yc-info">

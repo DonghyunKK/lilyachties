@@ -8,26 +8,19 @@
         <div class="col-8">
           <ul class="list-group">
             <% @yachts.each do |yacht| %>
-              <div class="card" style="width: 20rem;">
-                <img src="https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title"><%= link_to yacht.title, yacht_path(yacht) %></h5>
-                  <p class="card-text"><%= yacht.description %></p>
-                  <a href="" class="btn btn-primary">Enquire</a>
-                </div>
-              </div>
+              <%= render 'shared/yacht_card', yacht: yacht, margin: 20 %>
             <% end %>
           </ul>
         </div>
       </div>
     </div>
-    <div class="right-side"> 
+    <div class="right-side">
       <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
      </div>
-    </div>     
+    </div>
   </div>
 </div>
 

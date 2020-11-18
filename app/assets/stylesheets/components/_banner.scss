@@ -1,0 +1,40 @@
+.banner {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+
+  .banner-container{
+    background-size: cover;
+    background-position: center;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), asset-url('banner_image.jpg');
+    margin: -5px -10px -10px -5px;
+    filter: blur(3px);
+    z-index: 1;
+    height: 110%;
+    display: block;
+    position: absolute;
+    width: 110%;
+  }
+
+  .banner-content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+    h1 {
+      margin: 0;
+      color: white;
+      text-shadow: 0 0 15px rgba(0,0,0,0.2);
+      font-size: 60px;
+      font-weight: 500;
+      padding: 40px;
+    }
+
+    a {
+      margin: auto 40px;
+    }
+  }
+
+}

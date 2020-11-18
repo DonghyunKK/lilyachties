@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render 'shared/banner' %>
+<div class="home-background">
+  <div class="top-rated-carousel">
+    <div class="home-tr-text">
+      <h1 class="home-tr">Top rated:</h1>
+      <h2 class="home-tr-sub">OF 2020</h2>
+    </div>
+    <% unless @top_rated.nil? %>
+      <% @top_rated.each do |yacht| %>
+        <%= render 'shared/yacht_card', yacht: yacht %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

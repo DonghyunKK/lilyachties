@@ -10,6 +10,9 @@
       <li class="nav-item m-3 pl-3 pr-3 <%= 'active' if request.path == '/' %> " style="background-color: white;">
         <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
+      <li class="nav-item m-3 pl-3 pr-3 <%= 'active' if request.path == '/dashboard' %> " style="background-color: white;">
+        <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+      </li>
       <li class="nav-item dropdown">
         <!--  -->
 

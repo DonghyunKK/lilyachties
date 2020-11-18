@@ -5,7 +5,8 @@
       <h4 class="text-center">Your bookings</h4>
       <% if @bookings.count > 0 %>
         <% @bookings.each do |booking| %>
-          <p>Your booking</p>
+          <p>Your booking:</p>
+          <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.yacht.title %>
         <% end %>
       <% else %>
         <p>It looks like you don't have any bookings yet, what are you waiting for?</p>
@@ -15,7 +16,7 @@
       <h4 class="text-center">Your Yachts</h4>
       <div class="yachts d-flex flex-wrap">
         <% @yachts.each do |yacht| %>
-          <%= render 'shared/yacht_card', yacht: yacht %>
+          <%= render 'shared/yacht_card', yacht: yacht, margin: 20 %>
           <%= link_to 'Delete', yacht_path(yacht), method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
       </div>

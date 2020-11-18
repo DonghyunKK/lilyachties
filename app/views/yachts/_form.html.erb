@@ -4,18 +4,18 @@
       <%= simple_form_for @yacht do |f| %>
         <%= f.input :title %>
         <%= f.input :description %>
-        <%= f.input :weekly_price %>
-        <%= f.input :length %>
-        <%= f.input :beam %>
+        <%= f.input :weekly_price, input_html: { min: '0', step: 'any' } %>
+        <%= f.input :length, input_html: { min: '0', step: 'any' } %>
+        <%= f.input :beam, input_html: { min: '0', step: 'any' } %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       </div>
       <div class="col-6">
         <%= f.input :build %>
-        <%= f.input :cruising_speed %>
+        <%= f.input :cruising_speed, input_html: { min: '0', step: 'any' } %>
         <%= f.input :address %>
-        <%= f.input :number_of_guests %>
-        <%= f.input :number_of_crew %>
-        <%= f.input :number_of_cabins %>
+        <%= f.input :number_of_guests, input_html: { min: '0', step: 'any' } %>
+        <%= f.input :number_of_crew, input_html: { min: '0', step: 'any' } %>
+        <%= f.input :number_of_cabins, input_html: { min: '0', step: 'any' } %>
       </div>
       <%= f.submit class: "create-btn mr-4"%>
     <% end %>

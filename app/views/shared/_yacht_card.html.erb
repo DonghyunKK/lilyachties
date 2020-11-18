@@ -1,19 +1,20 @@
-<div class="yacht-card" style="margin: <%= margin %>px;">
-  <div class="yc-image-holder">
-    <% if yacht.photos[0] %>
-      <div class="yc-image" style='background-image: url("<%= cl_image_path yacht.photos[0].key%>");'></div>
-    <% else %>
-      <div class="yc-image" style='background-image: none'></div>
-    <% end %>
-   <div class="yc-yacht-name"><%= yacht.title %></div>
-  </div>
-  <div class="yc-info">
-    <div class="yc-rating-price">
-      <div class="yc-rating"><%= '⭐️' * yacht.average_rating if yacht.average_rating %></div>
-      <div class="yc-price">€<%= yacht.weekly_price %></div>
+<div class="yc-container" style="margin: 0 auto;">
+  <div class="yacht-card" style="margin: 10px;">
+    <div class="yc-image-holder">
+      <%= link_to yacht_path(yacht.id) do %>
+        <% if yacht.photos[0] %>
+          <div class="yc-image" style='background-image: url("<%= cl_image_path yacht.photos[0].key%>");'></div>
+        <% else %>
+          <div class="yc-image" style='background-image: none'></div>
+        <% end %>
+      <% end %>
+     <div class="yc-yacht-name"><%= yacht.title %></div>
     </div>
-    <div class="yc-btn-holder">
-      <%= link_to 'Enquire', yacht_path(yacht.id), class: 'yc-btn btn btn-dark' %>
+    <div class="yc-info">
+      <div class="yc-rating-price">
+        <div class="yc-rating"><%= '⭐️' * yacht.average_rating if yacht.average_rating %></div>
+        <div class="yc-price">€<%= yacht.weekly_price %></div>
+      </div>
     </div>
   </div>
 </div>

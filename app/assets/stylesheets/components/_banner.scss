@@ -9,8 +9,7 @@
     background-position: center;
     background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), asset-url('banner_image.jpg');
     margin: -5px -10px -10px -5px;
-    filter: blur(10px);
-    transition: 2s filter linear;
+    filter: blur(3px);
     z-index: 1;
     height: 110%;
     display: block;

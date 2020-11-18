@@ -15,8 +15,7 @@
       <h4 class="text-center">Your Yachts</h4>
       <div class="yachts d-flex flex-wrap">
         <% @yachts.each do |yacht| %>
-          <%= link_to yacht.title, yacht_path(yacht) %>
-          <%#= render 'shared/yacht_card', yacht: yacht %>
+          <%= render 'shared/yacht_card', yacht: yacht %>
           <%= link_to 'Delete', yacht_path(yacht), method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
       </div>

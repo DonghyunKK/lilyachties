@@ -3,6 +3,8 @@ class Yacht < ApplicationRecord
   has_many :bookings
   has_many_attached :photos
   validates :title, presence: true, uniqueness: true
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   # validates :build, presence: true
   # validates :coordinates, presence: true
   # validates :description, length: { minimum: 20 }

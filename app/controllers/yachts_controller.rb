@@ -3,6 +3,14 @@ class YachtsController < ApplicationController
 
   def index
     @yachts = Yacht.all
+
+    # get yachts with coordinates for geocode
+    @markers = @yachts.geocoded.map do |yacht|
+      {
+        lat: yacht.latitude,
+        lng: yach.longitude
+      }
+    end
   end
 
   def new

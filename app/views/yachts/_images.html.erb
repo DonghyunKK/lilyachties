@@ -1,10 +1,11 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <% @yacht.photos.each do |photo| %>
-      <div class="carousel-item">
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'd-block w-100 active' %>
-      </div>
-    <% end %>
+    <div class="carousel-item active">
+      <%= cl_image_tag @yacht.photos[0].key, height: 600, style:"object-fit:cover;", class: 'd-block w-100' %>
+    </div>
+    <div class="carousel-item ">
+      <%= cl_image_tag @yacht.photos[1].key, height: 600, style:"object-fit:cover;", class: 'd-block w-100' %>
+    </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

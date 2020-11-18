@@ -13,6 +13,7 @@ class YachtsController < ApplicationController
   def show
     id = params[:id]
     @yacht = Yacht.find(id)
+    @photos = @yacht.photos
     @booking = Booking.new
   end
 
@@ -33,7 +34,7 @@ class YachtsController < ApplicationController
   def update
     @yacht = Yacht.find(params[:id])
     @yacht.update(yacht_params)
-    if @yacht.update
+    if @yacht.save
       redirect_to yacht_path(@yacht.id)
     else
       render :edit

@@ -3,6 +3,13 @@ class YachtsController < ApplicationController
 
   def index
     @yachts = Yacht.all
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @yachts.geocoded.map do |yacht|
+      {
+        lat: yacht.latitude,
+        lng: yacht.longitude
+      }
+    end
   end
 
   def new

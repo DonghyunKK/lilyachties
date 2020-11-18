@@ -12,7 +12,8 @@
       <div class="col-6">
         <%= f.input :build %>
         <%= f.input :cruising_speed, input_html: { min: '0', step: 'any' } %>
-        <%= f.input :coordinates %>
+        <%= f.input :latitude %>
+        <%= f.input :longitude %>
         <%= f.input :number_of_guests, input_html: { min: '0', step: 'any' } %>
         <%= f.input :number_of_crew, input_html: { min: '0', step: 'any' } %>
         <%= f.input :number_of_cabins, input_html: { min: '0', step: 'any' } %>

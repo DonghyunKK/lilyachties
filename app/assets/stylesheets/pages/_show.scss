@@ -1,4 +1,69 @@
 .booking-form {
-  border: 1px solid black;
-  height: 100%;
+  width: 50%;
+  text-align: center;
+
+    h4 {
+      font-weight: 700;
+      color: $theme-blue;
+    }
 }
+
+.booking-card {
+  height: 100%;
+  border-radius: 5px;
+  padding: 0 4px;
+  background-color: $white;
+}
+
+.description {
+  color: $theme-blue;
+  padding: 8px;
+}
+
+.list-box {
+  width: 50%;
+  margin-right: 10px;
+  .card {
+    border-radius: 5px;
+    padding: 0 4px;
+  }
+  h6, h4 {
+    font-weight: 700;
+    color: $theme-blue;
+  }
+}
+
+.yacht-title {
+  margin: 20px 0;
+  color: $theme-blue;
+  font-weight: 700;
+}
+
+.details-table {
+  color: $theme-blue;
+  background-color: $white;
+  td {
+    border: none;
+  }
+}
+
+.btn-theme {
+  background-color: $theme-blue;
+  color: $white;
+  &:hover {
+    color: $theme-grey;
+  }
+}
+
+.form-group {
+  width: 75%;
+  margin: 10px;
+}
+
+.form-inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+

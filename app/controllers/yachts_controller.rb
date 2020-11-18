@@ -13,6 +13,8 @@ class YachtsController < ApplicationController
   def show
     id = params[:id]
     @yacht = Yacht.find(id)
+    @photos = @yacht.photos
+    @booking = Booking.new
   end
 
   def create
@@ -25,11 +27,25 @@ class YachtsController < ApplicationController
     end
   end
 
+  def edit
+    @yacht = Yacht.find(params[:id])
+  end
+
+  def update
+    @yacht = Yacht.find(params[:id])
+    @yacht.update(yacht_params)
+    if @yacht.save
+      redirect_to yacht_path(@yacht.id)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def yacht_params
     params.require(:yacht).permit(:title, :description, :weekly_price, :coordinates,
                                   :length, :number_of_crew, :number_of_guests,
-                                  :number_of_cabins, :beam, :cruising_speed, :build, :year)
+                                  :number_of_cabins, :beam, :cruising_speed, :build, :year, photos: [])
   end
 end

@@ -1,7 +1,8 @@
 <div class="container">
-  <div class="list-group">
+<div class="d-flex-justify-space-between">
+  <div class="list-group list-reviews">
     <% @yacht.reviews.each do |review| %>
-      <li class="list-group-item">
+      <li class="list-group-item reviews">
         <%= review.user.email %>
           <small>
             <% review.rating.times do %>
@@ -18,6 +19,7 @@
       </li>
     <% end %>
   </div>
+  <div class="container">
   <% if @yacht.user != current_user && @yacht.bookings.pluck(:user_id).include?(current_user.id) && @yacht.reviews.pluck(:user_id).none?(current_user.id) %>
     <%= simple_form_for [@yacht, @review] do |f| %>
       <%= f.input :rating, collection: 1..5 %>
@@ -25,4 +27,6 @@
       <%= f.submit class: "create-btn" %>
     <% end %>
   <% end %>
+  </div>
+  </div>
 </div>

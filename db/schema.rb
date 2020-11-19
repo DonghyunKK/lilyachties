@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_19_110851) do
+
+ActiveRecord::Schema.define(version: 2020_11_19_151936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_110851) do
     t.index ["yacht_id"], name: "index_bookings_on_yacht_id"
   end
 
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
@@ -57,6 +59,23 @@ ActiveRecord::Schema.define(version: 2020_11_19_110851) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["yacht_id"], name: "index_reviews_on_yacht_id"
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "toys", force: :cascade do |t|
+    t.string "name"
+    t.bigint "yacht_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["yacht_id"], name: "index_toys_on_yacht_id"
+
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,8 +86,10 @@ ActiveRecord::Schema.define(version: 2020_11_19_110851) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   create_table "yachts", force: :cascade do |t|
@@ -97,7 +118,11 @@ ActiveRecord::Schema.define(version: 2020_11_19_110851) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "yachts"
+
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "yachts"
+
+  add_foreign_key "toys", "yachts"
+
   add_foreign_key "yachts", "users"
 end

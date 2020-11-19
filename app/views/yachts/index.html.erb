@@ -1,15 +1,18 @@
 <h1 class="text-center">Choose your Lil' Yacht</h1>
-<div class="container">
-  <h2 class="text-left">Search Available Yachts</h2>
+<div class="container ">
+  <%= form_tag yachts_path, method: :get, class: "center-form" do %>
+    <%= text_field_tag :query, params[:query], class: "form-control search", placeholder:"Search e.g. Name, Description or Price" %> 
+  <% end %>
   <div class="content">
     <div class="left-side">
       <div class="row">
         <div class="col-8">
-          <ul class="list-group">
+          <div class="index-cards">
             <% @yachts.each do |yacht| %>
               <%= render 'shared/yacht_card', yacht: yacht, margin: 20 %>
             <% end %>
-          </ul>
+          </div>
+          <%= link_to "Back", root_path, class: "create-btn" %>
         </div>
       </div>
     </div>

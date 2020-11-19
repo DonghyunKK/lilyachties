@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'bookings/:id/accept', to: 'bookings#accept', as: 'accept_booking'
   get 'bookings/:id/decline', to: 'bookings#decline', as: 'decline_booking'
   resources :yachts do
+    resources :toys, only: [:create]
     resources :bookings, only: [:create, :index]
     resources :reviews, only: :create
   end

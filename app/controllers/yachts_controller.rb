@@ -7,7 +7,10 @@ class YachtsController < ApplicationController
     @markers = @yachts.geocoded.map do |yacht|
       {
         lat: yacht.latitude,
-        lng: yacht.longitude
+        lng: yacht.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { yacht: yacht }),
+        image_url: helpers.asset_url('ly_map_pin.png'),
+        yachtId: yacht.id
       }
     end
   end
@@ -21,7 +24,14 @@ class YachtsController < ApplicationController
     @yacht = Yacht.find(id)
     @photos = @yacht.photos
     @booking = Booking.new
-
+    @markers = [
+      {
+        lat: @yacht.latitude,
+        lng: @yacht.longitude,
+        image_url: helpers.asset_url('ly_map_pin.png'),
+        yachtId: @yacht.id
+      }
+    ]
   end
 
   def create

@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     @yacht = Yacht.find(params[:yacht_id])
     @bookings = Booking.where(yacht_id: params[:yacht_id])

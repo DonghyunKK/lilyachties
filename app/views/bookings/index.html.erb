@@ -1,6 +1,6 @@
 <h1 class="text-center mt-3">Enquires for <%= @yacht.title %></h1>
-<div class="container d-flex mt-2">
-  <% if @bookings.any? %>
+<% if @bookings.any? %>
+  <div class="container d-flex mt-2">
     <% @bookings.each do |booking| %>
       <div class="card text-center" style="width: 400px">
         <div class="card-body">
@@ -18,9 +18,9 @@
         </div>
       </div>
     <% end %>
-  <% else %>
-    <h3 class="text-center mt-5">There are currently no bookings for <%= @yacht.title %></h3>
-    <h3 class="text-center"><%= link_to 'Back to Dashboard', dashboard_path, class: 'btn create-btn' %></h3>
-  <% end %>
-</div>
+  </div>
+<% else %>
+  <h3 class="text-center mt-5">There are currently no bookings for <%= @yacht.title %></h3>
+<% end %>
+<h3 class="text-center mt-3"><%= link_to 'Back to Dashboard', dashboard_path, class: 'btn create-btn' %></h3>
 

@@ -12,10 +12,6 @@
     </div>
     <div class="yc-info">
       <div class="yc-rating-price">
-        <div class="d-flex flex-row justify-content-between align-items-center">
-          <p class="p-0 m-0"><i class="fas fa-map-pin" style="width: 20px;"></i>&nbsp;&nbsp;Location</p>
-          <p class="p-0 m-0"><strong><%= @yacht.address || 'Not specified' %></strong></p>
-        </div>
         <div class="yc-rating"><%= '⭑' * yacht.average_rating if yacht.average_rating %></div>
         <div class="yc-price">€<%= yacht.weekly_price %></div>
       </div>

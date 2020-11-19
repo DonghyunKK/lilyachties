@@ -10,6 +10,7 @@
           <%= f.input :length %>
           <%= f.input :beam %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <%=  f.collection_check_boxes :toys, Yacht.fetch_toys_for_yacht, :first, :last %>
         </div>
         <div class="col-6">
           <%= f.input :build %>

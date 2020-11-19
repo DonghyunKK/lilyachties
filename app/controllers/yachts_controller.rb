@@ -21,7 +21,7 @@ class YachtsController < ApplicationController
     @yacht = Yacht.find(id)
     @photos = @yacht.photos
     @booking = Booking.new
-
+    @review = Review.new
   end
 
   def create
@@ -32,7 +32,6 @@ class YachtsController < ApplicationController
     if @yacht.save # ensures validations pass
       redirect_to yacht_path(@yacht.id)
     else
-      raise
       render :new
     end
   end
@@ -53,7 +52,7 @@ class YachtsController < ApplicationController
 
   def destroy
     @yacht = Yacht.find(params[:id])
-    @yacht.delete
+    @yacht.destroy
     redirect_to dashboard_path
   end
 

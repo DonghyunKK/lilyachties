@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="list-group">
+    <% @yacht.reviews.each do |review| %>
+      <li class="list-group-item">
+        <%= review.user.email %>
+          <small>
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </small>
+        <p><%= review.content %></p>
+          <% if review.user == current_user %>
+            <%= link_to "Delete",
+              review_path(review),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+          <% end %>
+      </li>
+    <% end %>
+  </div>
+  <% if @yacht.user != current_user && @yacht.bookings.pluck(:user_id).include?(current_user.id) && @yacht.reviews.pluck(:user_id).none?(current_user.id) %>
+    <%= simple_form_for [@yacht, @review] do |f| %>
+      <%= f.input :rating, collection: 1..5 %>
+      <%= f.input :content %>
+      <%= f.submit class: "create-btn" %>
+    <% end %>
+  <% end %>
+</div>

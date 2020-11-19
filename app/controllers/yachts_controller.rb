@@ -2,8 +2,12 @@ class YachtsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @yachts = Yacht.all
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+
+    if params[:query].present?
+      @yachts = Yacht.search_by_title_and_description(params[:query])
+    else
+      @yachts = Yacht.all
+    end
     @markers = @yachts.geocoded.map do |yacht|
       {
         lat: yacht.latitude,

@@ -4,14 +4,14 @@
     <% @bookings.each do |booking| %>
       <div class="card text-center" style="width: 400px">
         <div class="card-body">
-          <h5 class="card-title">Enquiry for <%= booking.yacht.title %></h5>
+          <h3 class="card-title">Enquiry for <%= booking.yacht.title %></h3>
           <h6 class="card-title">Enquiry from: <%= booking.user.email %></h6>
-          <h6 class="card-subtitle mb-2 mt-2 text-muted">Start Date: <%= booking.start_date %></h6>
-          <h6 class="card-subtitle mb-2 mt-2 text-muted">End Date: <%= booking.end_date %></h6>
+          <h6 class="card-subtitle mb-2 mt-2 text-muted">Start Date: <%= booking.start_date.strftime('%A %d %b %Y') %></h6>
+          <h6 class="card-subtitle mb-2 mt-2 text-muted">End Date: <%= booking.end_date.strftime('%A %d %b %Y') %></h6>
           <% if booking.accepted == true %>
-            <span class="badge badge-success">Booking Confirmed!</span>
+            <h4><span class="badge badge-success my-2">Booking Confirmed!</span></h4>
           <% else %>
-            <span class="badge badge-warning">Booking awating confirmation.</span>
+            <h4><span class="badge badge-warning my-2">Booking awating confirmation.</span></h4>
           <% end %>
           <p class="mt-2"><%= link_to "Accept", accept_booking_path(booking), class: 'btn create-btn' %>
           <%= link_to "Decline", decline_booking_path(booking), class: 'btn create-btn' %></p>

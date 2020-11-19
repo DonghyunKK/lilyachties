@@ -2,61 +2,66 @@
   <%= render 'images' %>
 </div>
 
-<h1 class="text-center yacht-title"><%= @yacht.title %></h1>
-
 <div class="container">
-  <div class="d-flex justify-space-between">
-    <div class="list-box">
-      <div class="card">
-        <h4 class="text-center mt-2">Overview</h4>
-        <div class="description">
-          <p><%= @yacht.description.capitalize %></p>
-          <hr>
-        </div>
-        <table class="table details-table">
-          <h6 class="text-center">Yacht Details</h6>
-          <tbody>
-            <tr>
-              <td>Price:</td>
-              <td>€<%= @yacht.weekly_price %>p/w</td>
-            </tr>
-            <tr>
-              <td>Length:</td>
-              <td><%= @yacht.length %>m</td>
-            </tr>
-            <tr>
-              <td>Beam: </td>
-              <td><%= @yacht.beam %>m</td>
-            </tr>
-            <tr>
-              <td>Number of Guests:</td>
-              <td><%= @yacht.number_of_guests %></td>
-            </tr>
-            <tr>
-              <td>Number of Cabins:</td>
-              <td><%= @yacht.number_of_cabins %></td>
-            </tr>
-            <tr>
-              <td>Number of Crew:</td>
-              <td><%= @yacht.number_of_crew %></td>
-            </tr>
-            <tr>
-              <td>Cruising Speed:</td>
-              <td><%= @yacht.cruising_speed %> knots</td>
-            </tr>
-            <tr>
-              <td>Build:</td>
-              <td><%= @yacht.build.capitalize %></td>
-            </tr>
-            <tr>
-              <td>Year:</td>
-              <td><%= @yacht.year %></td>
-            </tr>
-          </tbody>
-        </table>
+  <h1 class="text-left yacht-title"><%= @yacht.title %></h1>
+  <div class="row my-3">
+    <div class="col-4">
+      <div id="map"
+         style="width: 100%; height: 190px;"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
+    <div class="col-4">
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <p class="p-0 m-0"><i class="far fa-calendar-alt" style="width: 20px;"></i>&nbsp;&nbsp;Year</p>
+        <p class="p-0 m-0"><strong><%= @yacht.year || 'Not specified' %></strong></p>
+      </div>
+      <hr class="p-0 m-2" />
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <p class="p-0 m-0"><i class="fas fa-users" style="width: 20px;"></i>&nbsp;&nbsp;Guests</p>
+        <p class="p-0 m-0"><strong><%= @yacht.number_of_guests || 'Not specified' %></strong></p>
+      </div>
+      <hr class="p-0 m-2" />
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <p class="p-0 m-0"><i class="fas fa-bed" style="width: 20px;"></i>&nbsp;&nbsp;Cabins</p>
+        <p class="p-0 m-0"><strong><%= @yacht.number_of_cabins || 'Not specified' %></strong></p>
+      </div>
+      <hr class="p-0 m-2" />
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <p class="p-0 m-0"><i class="fas fa-user-tie" style="width: 20px;"></i>&nbsp;&nbsp;Crew</p>
+        <p class="p-0 m-0"><strong><%= @yacht.number_of_crew || 'Not specified' %></strong></p>
+      </div>
+      <hr class="p-0 m-2" />
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <p class="p-0 m-0"><i class="fas fa-ruler" style="width: 20px;"></i>&nbsp;&nbsp;Length</p>
+        <p class="p-0 m-0"><strong><%= "#{@yacht.length}m" || 'Not specified' %></strong></p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <p class="p-0 m-0"><i class="fas fa-money-check-alt" style="width: 20px;"></i>&nbsp;&nbsp;Weekly price</p>
+        <p class="p-0 m-0"><strong><%= "€#{@yacht.weekly_price} per week" || 'Not specified' %></strong></p>
+      </div>
+      <hr class="p-0 m-2" />
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <p class="p-0 m-0"><i class="fas fa-hammer" style="width: 20px;"></i>&nbsp;&nbsp;Build</p>
+        <p class="p-0 m-0"><strong><%= @yacht.build || 'Not specified' %></strong></p>
+      </div>
+      <hr class="p-0 m-2" />
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <p class="p-0 m-0"><i class="fas fa-map-pin" style="width: 20px;"></i>&nbsp;&nbsp;Location</p>
+        <p class="p-0 m-0"><strong><%= @yacht.address || 'Not specified' %></strong></p>
+      </div>
+      <hr class="p-0 m-2" />
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <p class="p-0 m-0"><i class="fas fa-arrows-alt-h" style="width: 20px;"></i>&nbsp;&nbsp;Beam</p>
+        <p class="p-0 m-0"><strong><%= "#{@yacht.beam}m" || 'Not specified' %></strong></p>
+      </div>
+    </div>
+  </div>
 
+  <div class="d-flex justify-space-between">
     <div class="booking-form">
       <div class="card booking-card">
         <% if @yacht.user == current_user %>

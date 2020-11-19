@@ -1,7 +1,11 @@
 class Yacht < ApplicationRecord
   belongs_to :user
   has_many :bookings
+
+  has_many :reviews, dependent: :destroy
+
   has_many :toys
+
   has_many_attached :photos
   validates :title, presence: true, uniqueness: true
   geocoded_by :address

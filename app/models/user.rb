@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :yachts, dependent: :destroy
+  has_many :reviews
   has_many :bookings
   validates :username, uniqueness: { case_sensitive: false }
   # validates :email, format: { with: /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/ }

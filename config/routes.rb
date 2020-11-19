@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :yachts do
     resources :toys, only: [:create]
     resources :bookings, only: [:create, :index]
+    resources :reviews, only: :create
   end
   resources :bookings, only: [:destroy]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :reviews, only: [:destroy]
 end

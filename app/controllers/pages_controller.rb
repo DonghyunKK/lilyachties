@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @yachts = Yacht.where(:user_id == current_user.id)
-    @bookings = Booking.where(:user_id == current_user.id)
+    @yachts = Yacht.where(user: current_user)
+    @bookings = Booking.where(user: current_user)
   end
 end

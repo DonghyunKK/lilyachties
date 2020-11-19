@@ -5,8 +5,19 @@
       <h4 class="text-center">Your bookings</h4>
       <% if @bookings.count > 0 %>
         <% @bookings.each do |booking| %>
-          <p>Your booking:</p>
-          <%= booking.start_date %> to <%= booking.end_date %> for <%= booking.yacht.title %>
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Your booking on board <%= booking.yacht.title %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= booking.start_date %> - <%= booking.end_date %></h6>
+              <% if booking.accepted == true %>
+                <span class="badge badge-success">Booking Confirmed!</span>
+              <% else %>
+                <span class="badge badge-warning">Booking awating confirmation.</span>
+              <% end %>
+              <p class="mt-2"><%= link_to "View Yacht", yacht_path(booking.yacht.id), class: 'btn create-btn' %>
+              <%= link_to "Cancel Booking", booking_path(booking), method: :delete, class: 'btn create-btn' %></p>
+            </div>
+          </div>
         <% end %>
       <% else %>
         <p>It looks like you don't have any bookings yet, what are you waiting for?</p>
@@ -14,10 +25,14 @@
     </div>
     <div class="dashboard-yachts w-50">
       <h4 class="text-center">Your Yachts</h4>
-      <div class="yachts d-flex flex-wrap">
+      <div class="yachts d-flex flex-wrap justify-content-center">
         <% @yachts.each do |yacht| %>
-          <%= render 'shared/yacht_card', yacht: yacht, margin: 20 %>
-          <%= link_to 'Delete', yacht_path(yacht), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="yacht m-3">
+            <%= render 'shared/yacht_card', yacht: yacht, margin: 20 %>
+            <p class="text-center"><%= link_to 'View Enquiries', yacht_bookings_path(yacht), class: 'btn create-btn' %></p>
+            <p class="text-center"><%= link_to 'Edit', edit_yacht_path(yacht), class: 'btn create-btn' %>
+            <%= link_to 'Delete', yacht_path(yacht), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn create-btn' %></p>
+          </div>
         <% end %>
       </div>
       <p class="text-center">

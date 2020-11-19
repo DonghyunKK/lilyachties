@@ -1,4 +1,10 @@
 class BookingsController < ApplicationController
+
+  def index
+    @yacht = Yacht.find(params[:yacht_id])
+    @bookings = Booking.where(yacht_id: params[:yacht_id])
+  end
+
   def create
     @booking = Booking.new(booking_params)
     # we need `yacht_id` to associate booking with corresponding yacht
@@ -11,6 +17,26 @@ class BookingsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.accepted = true
+    @booking.save
+    redirect_to dashboard_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.accepted = false
+    @booking.save
+    redirect_to dashboard_path
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.delete
+    redirect_to dashboard_path
   end
 
   private

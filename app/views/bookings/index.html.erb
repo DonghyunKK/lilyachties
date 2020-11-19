@@ -1,0 +1,26 @@
+<h1 class="text-center mt-3">Enquires for <%= @yacht.title %></h1>
+<div class="container d-flex mt-2">
+  <% if @bookings.any? %>
+    <% @bookings.each do |booking| %>
+      <div class="card text-center" style="width: 400px">
+        <div class="card-body">
+          <h5 class="card-title">Enquiry for <%= booking.yacht.title %></h5>
+          <h6 class="card-title">Enquiry from: <%= booking.user.email %></h6>
+          <h6 class="card-subtitle mb-2 mt-2 text-muted">Start Date: <%= booking.start_date %></h6>
+          <h6 class="card-subtitle mb-2 mt-2 text-muted">End Date: <%= booking.end_date %></h6>
+          <% if booking.accepted == true %>
+            <span class="badge badge-success">Booking Confirmed!</span>
+          <% else %>
+            <span class="badge badge-warning">Booking awating confirmation.</span>
+          <% end %>
+          <p class="mt-2"><%= link_to "Accept", accept_booking_path(booking), class: 'btn create-btn' %>
+          <%= link_to "Decline", decline_booking_path(booking), class: 'btn create-btn' %></p>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <h3 class="text-center mt-5">There are currently no bookings for <%= @yacht.title %></h3>
+    <h3 class="text-center"><%= link_to 'Back to Dashboard', dashboard_path, class: 'btn create-btn' %></h3>
+  <% end %>
+</div>
+

@@ -1,0 +1,3 @@
+<h2 style='font-weight: bolder; font-size: 18px;'><%= yacht.title %></h2>
+<p><%= yacht.address %></p>
+<%= link_to cl_image_tag(yacht.photos[0].key, style: 'border-radius: 10px;'), yacht_path(yacht) if yacht.photos[0] %>

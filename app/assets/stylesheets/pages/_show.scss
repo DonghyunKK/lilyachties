@@ -1,7 +1,6 @@
 .booking-form {
   width: 50%;
   text-align: center;
-
     h4 {
       font-weight: 700;
       color: $theme-blue;
@@ -10,9 +9,12 @@
 
 .booking-card {
   height: 100%;
+  width: 100%;
   border-radius: 5px;
   padding: 0 4px;
   background-color: $white;
+  max-height: 350px;
+  min-width: 350px;
 }
 
 .description {

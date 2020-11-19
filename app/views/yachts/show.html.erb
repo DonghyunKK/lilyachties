@@ -4,6 +4,7 @@
 
 <div class="container">
   <h1 class="text-left yacht-title"><%= @yacht.title %></h1>
+  <p class="text-left"><%= @yacht.description %></p>
   <div class="row my-3">
     <div class="col-4">
       <div id="map"
@@ -62,7 +63,7 @@
   </div>
 
   <div class="d-flex justify-space-between">
-    <div class="booking-form">
+    <div class="booking-form col-4 pl-0">
       <div class="card booking-card">
         <% if @yacht.user == current_user %>
           <h4 class="text-center mt-2">Can't book your own yacht!</h4>

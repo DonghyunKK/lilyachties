@@ -28,16 +28,12 @@
   padding: 5px 8px 5px;
 }
 
-.yc-rating-price {
+.yc-details {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+}
 
-  .yc-rating {
-    margin: 15px;
-  }
-
-  .yc-price {
-    margin: 15px;
-  }
+.icon {
+  width: 20px;
 }

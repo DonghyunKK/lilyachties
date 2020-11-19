@@ -42,6 +42,7 @@ class YachtsController < ApplicationController
   def create
     # byebug
     @yacht = Yacht.new(yacht_params)
+    @yacht.toys = join_toys
     @yacht.user = current_user
     puts @yacht
     if @yacht.save # ensures validations pass
@@ -76,6 +77,12 @@ class YachtsController < ApplicationController
   def yacht_params
     params.require(:yacht).permit(:title, :description, :weekly_price, :address,
                                   :length, :number_of_crew, :number_of_guests,
-                                  :number_of_cabins, :beam, :cruising_speed, :build, :year, photos: [])
+                                  :number_of_cabins, :beam, :cruising_speed, :build, :year, :toys, photos: [])
+  end
+
+  def join_toys
+    toys = params.require(:yacht).require(:toys)
+    toys.shift
+    return toys.join(", ")
   end
 end

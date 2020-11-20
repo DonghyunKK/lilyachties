@@ -4,11 +4,14 @@
   border-radius: 4px;
   background: #284B63;
   transition: background 0.3s ease;
+  margin: auto;
+  border: none;
 }
 
 .create-btn:hover {
   opacity: 0.9;
   color: white;
+  text-decoration: none;
 }
 
 .new-enquiry-btn {

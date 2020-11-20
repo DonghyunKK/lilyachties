@@ -77,12 +77,10 @@
           <%= simple_form_for [ @yacht, @booking ] do |f| %>
           <div class="form-inputs">
             <div class="form-group-booking">
-              <%= f.label :start_date %>
-              <%= f.date_field :start_date, class: 'form-control' %>
+              <%= f.input :start_date, as: :string, placeholder: "Select Start Date", input_html: {class: "datepicker form-control"} %>
             </div>
             <div class="form-group-booking">
-              <%= f.label :end_date %>
-              <%= f.date_field :end_date, class: 'form-control' %>
+              <%= f.input :end_date, as: :string, placeholder: "Select End Date", input_html: {class: "datepicker form-control"} %>
             </div>
             <%= f.submit "Enquire", class: 'btn btn-theme' %>
           <% end %>

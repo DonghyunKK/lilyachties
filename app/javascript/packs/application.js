@@ -22,15 +22,19 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+
+
 // External imports
 import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initFlatpickr } from "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initFlatpickr();
   $(window).scroll(function(e) {
 
     var distanceScrolled = $(this).scrollTop();
@@ -38,9 +42,3 @@ document.addEventListener('turbolinks:load', () => {
     $('.banner-container').css('-webkit-filter', 'blur('+distanceScrolled/8+'px)');
 
   });
-})
-
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});

@@ -35,5 +35,10 @@ import { initFlatpickr } from "../plugins/flatpickr";
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initFlatpickr();
-})
+  $(window).scroll(function(e) {
 
+    var distanceScrolled = $(this).scrollTop();
+
+    $('.banner-container').css('-webkit-filter', 'blur('+distanceScrolled/8+'px)');
+
+  });

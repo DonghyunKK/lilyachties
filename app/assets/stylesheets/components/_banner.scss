@@ -1,23 +1,32 @@
 .banner {
-  width: 100%;
-  height: 450px;
+  height: 600px;
   overflow: hidden;
   position: relative;
 
   .banner-container{
-    background-size: cover;
-    background-position: center;
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), asset-url('banner_image.jpg');
-    margin: -5px -10px -10px -5px;
-    filter: blur(3px);
+    // background-size: cover;
+    // background-position: center;
+    background-image: asset-url('banner_image.jpg');
+    // margin: -5px -10px -10px -5px;
     z-index: 1;
-    height: 110%;
-    display: block;
+    // height: 110%;
+    // display: block;
     position: absolute;
-    width: 110%;
+    width: 100%;
+    height: 500px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: -100px -100px;
+    background-repeat: no-repeat;
+    background-size: calc(100vw + 100px) auto;
   }
 
+
+
   .banner-content {
+    margin-top: 100px;
+    margin-left: 40px;
     position: absolute;
     left: 0;
     right: 0;
@@ -26,7 +35,7 @@
     h1 {
       margin: 0;
       color: white;
-      text-shadow: 0 0 15px rgba(0,0,0,0.2);
+      text-shadow: 0 0 30px rgba(0,0,0,0.4);
       font-size: 60px;
       font-weight: 500;
       padding: 40px;
@@ -34,6 +43,10 @@
 
     a {
       margin: auto 40px;
+    }
+
+    a:hover {
+      opacity: 80%;
     }
   }
 

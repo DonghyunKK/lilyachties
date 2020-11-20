@@ -4,7 +4,7 @@
 
 <div class="container">
   <h1 class="text-left yacht-title"><%= @yacht.title %></h1>
-  <p class="text-left"><%= @yacht.description %></p>
+  <p class="text-left"><strong><%= @yacht.description %></strong></p>
   <div class="row my-3">
     <div class="col-4">
       <div id="map"
@@ -67,8 +67,8 @@
     </div>
   </div>
 
-  <div class="d-flex justify-space-between">
-    <div class="booking-form col-4 pl-0">
+  <div class="d-flex justify-space-between my-4">
+    <div class="container booking-form col-4 pl-0">
       <div class="card booking-card">
         <% if @yacht.user == current_user %>
           <h4 class="text-center mt-2">Can't book your own yacht!</h4>
@@ -76,11 +76,11 @@
           <h4 class="text-center mt-2">New Booking</h4>
           <%= simple_form_for [ @yacht, @booking ] do |f| %>
           <div class="form-inputs">
-            <div class="form-group">
+            <div class="form-group-booking">
               <%= f.label :start_date %>
               <%= f.date_field :start_date, class: 'form-control' %>
             </div>
-            <div class="form-group">
+            <div class="form-group-booking">
               <%= f.label :end_date %>
               <%= f.date_field :end_date, class: 'form-control' %>
             </div>

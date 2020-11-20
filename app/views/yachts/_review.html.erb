@@ -5,7 +5,7 @@
         <% @yacht.reviews.each do |review| %>
           <p id="review-<%= review.id %>"></p>
             <li class="list-group-item reviews mb-2">
-              <%= review.user.email %>
+              <%= review.user.username || review.user.email %>
                 <% if review.user == current_user %>
                   <%= link_to review_path(review),
                     method: :delete,
@@ -17,7 +17,7 @@
                   <% review.rating.times do %>
                     <i class="fas fa-star"></i>
                   <% end %>
-                  
+
                 </small>
                 <p><%= review.content %></p>
             </li>

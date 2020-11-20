@@ -13,12 +13,12 @@
     <div class="yc-info">
       <div class="yc-details p-1">
         <div class="location-guests">
-          <div class="yc-location" style="font-size: 14px;"><i class="fas fa-map-pin icon text-center"></i> <%= yacht.address %></div>
-          <div class="yc-guests" style="font-size: 14px;"><i class="fas fa-users icon text-center"></i> <%= yacht.number_of_guests %></div>
+          <div class="yc-location" style="font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i class="fas fa-map-pin icon text-center"></i> <%= yacht.address %></div>
+          <div class="yc-guests" style="font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><i class="fas fa-users icon text-center"></i> <%= yacht.number_of_guests %></div>
         </div>
         <div class="rating-price">
-          <div class="yc-price" style="font-size: 14px;">€<%= yacht.weekly_price %>p/w</div>
-          <div class="yc-rating" style="font-size: 14px;"><%= yacht.average_rating.nil? ? 'Not enough Ratings' : '⭑' * yacht.average_rating %></div>
+          <div class="yc-price" style="font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">€<%= yacht.weekly_price %>p/w</div>
+          <div class="yc-rating" style="font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><%= yacht.average_rating.nil? ? 'No ratings' : '⭑' * yacht.average_rating %></div>
         </div>
       </div>
     </div>

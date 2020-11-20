@@ -13,7 +13,7 @@
               <% if booking.accepted == true %>
                 <h4><span class="badge badge-success my-2">Booking Confirmed!</span></h4>
               <% else %>
-               <h4><span class="badge badge-warning my-2">Booking awating confirmation.</span></h4>
+               <h4><span class="badge badge-warning my-2">Booking awaiting confirmation.</span></h4>
               <% end %>
               <p class="mt-2"><%= link_to "View Yacht", yacht_path(booking.yacht.id), class: 'create-btn' %>
               <%= link_to "Cancel Booking", booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'create-btn' %></p>

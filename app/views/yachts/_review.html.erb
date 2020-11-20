@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="container box col-6 pr-0">
-      <% if @yacht.user != current_user && @yacht.bookings.pluck(:user_id).include?(current_user.id) && @yacht.reviews.pluck(:user_id).none?(current_user.id) %>
+      <% if @yacht.user != current_user && current_user && @yacht.bookings.pluck(:user_id).include?(current_user.id) && @yacht.reviews.pluck(:user_id).none?(current_user.id) %>
         <div id="form-width">
           <%= simple_form_for [@yacht, @review], remote: true do |f| %>
             <%= f.input :rating, collection: 1..5 %>

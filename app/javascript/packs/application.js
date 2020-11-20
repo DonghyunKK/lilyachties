@@ -31,6 +31,13 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  $(window).scroll(function(e) {
+
+    var distanceScrolled = $(this).scrollTop();
+
+    $('.banner-container').css('-webkit-filter', 'blur('+distanceScrolled/8+'px)');
+
+  });
 })
 
 document.addEventListener('turbolinks:load', () => {

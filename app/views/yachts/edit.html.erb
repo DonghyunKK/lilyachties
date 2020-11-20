@@ -1,2 +1,28 @@
 <h1>Edit Yacht</h1>
-<%= render 'form' %>
+  <div class="container py-5">
+    <%= simple_form_for @yacht do |f| %>
+      <div class="row">
+        <div class="col-6">
+          <%= f.error_notification %>
+          <%= f.input :title %>
+          <%= f.input :description %>
+          <%= f.input :weekly_price %>
+          <%= f.input :length %>
+          <%= f.input :beam %>
+          <%= f.input :year %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <%=  f.collection_check_boxes :toys, Yacht.fetch_toys_for_yacht, :first, :last %>
+        </div>
+        <div class="col-6">
+          <%= f.input :build %>
+          <%= f.input :cruising_speed %>
+          <%= f.input :address %>
+          <%= f.input :number_of_guests %>
+          <%= f.input :number_of_crew %>
+          <%= f.input :number_of_cabins %>
+        </div>
+      <%= f.submit 'Update', class: "create-btn mr-4"%>
+    <% end %>
+    <%= link_to "Back", dashboard_path, class: "create-btn" %>
+  </div>
+</div>

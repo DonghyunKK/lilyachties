@@ -5,7 +5,7 @@
       <div class="card text-center" style="width: 400px">
         <div class="card-body">
           <h3 class="card-title">Enquiry for <%= booking.yacht.title %></h3>
-          <h6 class="card-title">Enquiry from: <%= booking.user.email %></h6>
+          <h6 class="card-title">Enquiry from: <%= booking.user.username || booking.user.email %></h6>
           <h6 class="card-subtitle mb-2 mt-2 text-muted">Start Date: <%= booking.start_date.strftime('%A %d %b %Y') %></h6>
           <h6 class="card-subtitle mb-2 mt-2 text-muted">End Date: <%= booking.end_date.strftime('%A %d %b %Y') %></h6>
           <% if booking.accepted == true %>

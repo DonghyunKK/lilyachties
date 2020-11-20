@@ -15,8 +15,8 @@
               <% else %>
                <h4><span class="badge badge-warning my-2">Booking awating confirmation.</span></h4>
               <% end %>
-              <p class="mt-2"><%= link_to "View Yacht", yacht_path(booking.yacht.id), class: 'btn create-btn' %>
-              <%= link_to "Cancel Booking", booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn create-btn' %></p>
+              <p class="mt-2"><%= link_to "View Yacht", yacht_path(booking.yacht.id), class: 'create-btn' %>
+              <%= link_to "Cancel Booking", booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'create-btn' %></p>
             </div>
           </div>
         <% end %>
@@ -30,14 +30,14 @@
         <% @yachts.each do |yacht| %>
           <div class="yacht mb-3">
             <%= render 'shared/yacht_card', yacht: yacht, margin: 20 %>
-            <p class="text-center"><%= link_to 'View Enquiries', yacht_bookings_path(yacht), class: 'btn create-btn' %></p>
-            <p class="text-center"><%= link_to 'Edit', edit_yacht_path(yacht), class: 'btn create-btn' %>
-            <%= link_to 'Delete', yacht_path(yacht), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn create-btn' %></p>
+            <p class="text-center"><%= link_to 'View Enquiries', yacht_bookings_path(yacht), class: 'create-btn' %></p>
+            <p class="text-center"><%= link_to 'Edit', edit_yacht_path(yacht), class: 'create-btn' %>
+            <%= link_to 'Delete', yacht_path(yacht), method: :delete, data: { confirm: 'Are you sure?' }, class: 'create-btn' %></p>
           </div>
         <% end %>
       </div>
       <p class="text-center">
-        <%= link_to 'Add a New Yacht', new_yacht_path, class: 'btn create-btn' %>
+        <%= link_to 'Add a New Yacht', new_yacht_path, class: 'create-btn' %>
       </p>
     </div>
   </div>

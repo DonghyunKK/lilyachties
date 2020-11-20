@@ -40,5 +40,5 @@ document.addEventListener('turbolinks:load', () => {
     var distanceScrolled = $(this).scrollTop();
 
     $('.banner-container').css('-webkit-filter', 'blur('+distanceScrolled/8+'px)');
-
   });
+})

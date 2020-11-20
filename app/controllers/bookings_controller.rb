@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     if @booking.save # ensures validations pass
       redirect_to dashboard_path
     else
-      render :new
+      redirect_to yacht_path(@yacht.id)
     end
   end
 

@@ -9,6 +9,7 @@
           <%= f.input :weekly_price %>
           <%= f.input :length %>
           <%= f.input :beam %>
+          <%= f.input :year %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%=  f.collection_check_boxes :toys, Yacht.fetch_toys_for_yacht, :first, :last %>
         </div>

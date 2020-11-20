@@ -44,7 +44,6 @@ class YachtsController < ApplicationController
     @yacht = Yacht.new(yacht_params)
     @yacht.toys = join_toys
     @yacht.user = current_user
-    puts @yacht
     if @yacht.save # ensures validations pass
       redirect_to yacht_path(@yacht.id)
     else

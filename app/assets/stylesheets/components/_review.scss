@@ -1,0 +1,23 @@
+.reviews {
+  overflow-y: scroll;
+  min-height: 40px;
+  background-color: transparent;
+}
+
+.box {
+  height: 200px;
+  width: 100%;
+}
+
+#form-width {
+  width: 100%;
+  margin: 0;
+}
+
+small {
+  float: right;
+}
+
+i {
+  color: $theme-blue;
+}

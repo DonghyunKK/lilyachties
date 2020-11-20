@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
     @review.yacht = @yacht
     @review.user = current_user
     if @review.save!
-      redirect_to yacht_path(@yacht.id)
+      redirect_to yacht_path(@yacht.id, anchor: "review-#{@review.id}")
     else
       render :new
     end

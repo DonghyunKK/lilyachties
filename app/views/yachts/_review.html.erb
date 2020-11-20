@@ -1,28 +1,42 @@
-<div class="container">
-  <div class="list-group">
-    <% @yacht.reviews.each do |review| %>
-      <li class="list-group-item">
-        <%= review.user.email %>
-          <small>
-            <% review.rating.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-          </small>
-        <p><%= review.content %></p>
-          <% if review.user == current_user %>
-            <%= link_to "Delete",
-              review_path(review),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
+<div class="container p-0">
+  <div class="row d-flex-justify-space-between">
+    <div class="container box col-6 pr-0" id="reviews">
+      <div class="list-group list-reviews">
+        <% @yacht.reviews.each do |review| %>
+          <p id="review-<%= review.id %>"></p>
+            <li class="list-group-item reviews mb-2">
+              <%= review.user.email %>
+                <% if review.user == current_user %>
+                  <%= link_to review_path(review),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+                <small>
+                  <% review.rating.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  
+                </small>
+                <p><%= review.content %></p>
+            </li>
+        <% end %>
+      </div>
+    </div>
+    <div class="container box col-6 pr-0">
+      <% if @yacht.user != current_user && @yacht.bookings.pluck(:user_id).include?(current_user.id) && @yacht.reviews.pluck(:user_id).none?(current_user.id) %>
+        <div id="form-width">
+          <%= simple_form_for [@yacht, @review], remote: true do |f| %>
+            <%= f.input :rating, collection: 1..5 %>
+            <%= f.input :content %>
+            <div class="btn-width mx-auto">
+              <%= f.submit class: "create-btn button-center" %>
+            </div>
           <% end %>
-      </li>
-    <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
   </div>
-  <% if @yacht.user != current_user && @yacht.bookings.pluck(:user_id).include?(current_user.id) && @yacht.reviews.pluck(:user_id).none?(current_user.id) %>
-    <%= simple_form_for [@yacht, @review] do |f| %>
-      <%= f.input :rating, collection: 1..5 %>
-      <%= f.input :content %>
-      <%= f.submit class: "create-btn" %>
-    <% end %>
-  <% end %>
 </div>

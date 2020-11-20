@@ -13,8 +13,8 @@
           <% else %>
             <h4><span class="badge badge-warning my-2">Booking awating confirmation.</span></h4>
           <% end %>
-          <p class="mt-2"><%= link_to "Accept", accept_booking_path(booking), class: 'btn create-btn' %>
-          <%= link_to "Decline", decline_booking_path(booking), class: 'btn create-btn' %></p>
+          <p class="mt-2"><%= link_to "Accept", accept_booking_path(booking), class: 'create-btn' %>
+          <%= link_to "Decline", decline_booking_path(booking), class: 'create-btn' %></p>
         </div>
       </div>
     <% end %>
@@ -22,4 +22,4 @@
 <% else %>
   <h3 class="text-center mt-5">There are currently no enquiries for <%= @yacht.title %></h3>
 <% end %>
-<h3 class="text-center mt-3"><%= link_to 'Back to Dashboard', dashboard_path, class: 'btn create-btn' %></h3>
+<h4 class="text-center mt-3"><%= link_to 'Back to Dashboard', dashboard_path, class: 'create-btn' %></h4>
